@@ -1,0 +1,23 @@
+<!-- <span class="btn btn-info"></span> -->
+<button type="button" class="btn btn-primary  pull-right" style="float: right;"> <a  [routerLink]="['/create']" style="color:#FFF !important; ">Add Employee</a></button>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>category Name</th>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employees">
+              <td>{{employee.id}}</td>
+              <td>{{employee.category_name}}</td>
+              <td>{{employee.name}}</td>
+              <td>{{employee.description}}</td>
+              <td> &#x20A8; {{employee.price}}</td>
+        </tr>
+    </tbody>
+</table>

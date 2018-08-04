@@ -1,0 +1,43 @@
+<div class="container">
+  <h2>Add Product</h2>
+  <form [formGroup]="proForm" (ngSubmit)="onSubmit()">
+  <select class="form-control form-control-lg" name="category_id" >
+  <option value="{{category.id}}" *ngFor="let category of categories">{{category.name}}</option>
+    </select>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Name*:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" formControlName="name" placeholder="Enter Name"  value="{{frmdata}}" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required"> Name is required</div>
+          </div>
+      </div>
+    </div>
+        <div class="form-group">
+   <label class="control-label col-sm-2" for="price">Price:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" placeholder="Enter Price" formControlName="price"  [ngClass]="{ 'is-invalid': submitted && f.price.errors }">
+         <div *ngIf="submitted && f.price.errors" class="invalid-feedback">
+            <div *ngIf="f.price.errors.required"> Price is required</div>
+          </div>
+      </div>
+     </div>
+ <div class="form-group">
+      <label class="control-label col-sm-2" for="desc">Description:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" placeholder="Enter Description" formControlName="description"  [ngClass]="{ 'is-invalid': submitted && f.description.errors }">
+         <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required"> Description is required</div>
+          </div>
+      </div>
+    </div> 
+  
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" [disabled]="loading"  class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
